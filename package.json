@@ -2,12 +2,15 @@
   "name": "web-accessibility-compliance-guide",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://james8.github.io/web-accessibility-compliance-guide",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0"
