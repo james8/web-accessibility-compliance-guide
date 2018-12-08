@@ -2,12 +2,12 @@
   "name": "web-accessibility-compliance-guide",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://james8.github.io/web-accessibility-compliance-guide",
+  "homepage": "https://github.com/james8/web-accessibility-compliance-guide",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "gh-pages -d dist"
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "gh-pages": "^2.0.1",
@@ -25,6 +25,7 @@
     "babel-core": "7.0.0-bridge.0",
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
+    "vue-gh-pages": "^1.19.0",
     "vue-template-compiler": "^2.5.17"
   },
   "postcss": {
