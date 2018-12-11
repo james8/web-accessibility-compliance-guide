@@ -67,7 +67,7 @@
             if (!type) this.focusBtnText = "Focus Here";
             else {
                 this.focusBtnText = "Focused";
-                (document.querySelector('#menu-nc #focus-btn') as HTMLElement).focus();
+                (document.querySelector('#navigation-nc #focus-btn') as HTMLElement).focus();
             }
         }
 
