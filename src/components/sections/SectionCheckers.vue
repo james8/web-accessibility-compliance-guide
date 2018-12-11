@@ -7,7 +7,7 @@
         <h2>Web Accessibility Compliance Checkers</h2>
 
         <p>
-            <span class="fancy">tota11y</span> is a useful free web accessibility compliance checker tool to use when making sure your site is compliant.  To use, drag the <span class="fancy">tota11y</span> button below into your bookmarks bar.  Navigate to your site and click on the bookmark to use.  Click on the <img alt="totally icon" src="./../assets/tota11y.png" /> to use.
+            <span class="fancy">tota11y</span> is a useful free web accessibility compliance checker tool to use when making sure your site is compliant.  To use, drag the <span class="fancy">tota11y</span> button below into your bookmarks bar.  Navigate to your site and click on the bookmark to use.  Click on the <img alt="totally icon" src="./../../assets/tota11y.png" /> to use.
         </p>
 
         <a class="bookmarklet" href="javascript:(function(){var%20tota11y=document.createElement('SCRIPT');tota11y.type='text/javascript';tota11y.src='//khan.github.io/tota11y/tota11y/build/tota11y.min.js';document.getElementsByTagName('head')[0].appendChild(tota11y);})();" onclick="javascript:return false;">
@@ -48,7 +48,7 @@
         <p>
             Another useful free web accessibility compliance checker tool to use is the <span class="fancy">WAVE web accessibility evaluation tool</span>, which is a Chrome extension that can be downloaded.  The WAVE evaluation tool contains a bit more information which may make it more complicated to figure out what is not in compliance and why.  To use, go to the <span class="fancy">Chrome Web Store</span> and download the <span class="fancy">WAVE web accessibility evaluation tool</span> extension.  Once installed, navigate to your site and run the extension.
         </p>
-        <img alt="wave web accessibility evaluation tool logo" src="./../assets/WAVETool.png" />
+        <img alt="wave web accessibility evaluation tool logo" src="./../../assets/WAVETool.png" />
     </div>
 </template>
 

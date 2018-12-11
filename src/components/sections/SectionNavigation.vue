@@ -21,16 +21,20 @@
                 It's also best to not have links which are hidden and become visible on mouse hover.  This is due to the fact that mobile user, who only have the capability of touch, may not be able to access these links.  Some hover capabilities may also be unreachable via keyboard navigation.
             </p>
         </note>
+
+        <navigation-nc :link="'section-navigation'"></navigation-nc>
     </div>
 </template>
 
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
 
+    import NavigationNc from "@/components/NavigationNc.vue";
     import Note from "@/components/Note.vue";
 
     @Component({
         components: {
+            NavigationNc,
             Note
         }
     })

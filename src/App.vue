@@ -43,11 +43,11 @@
 
     import Note from "@/components/Note.vue";
     import Parallax from "@/components/Parallax.vue";
-    import SectionCheckers from "@/components/SectionCheckers.vue";
-    import SectionComplianceLevels from "@/components/SectionComplianceLevels.vue";
-    import SectionNavigation from "@/components/SectionNavigation.vue";
-    import SectionScreenReaders from "@/components/SectionScreenReaders.vue";
-    import SectionTableOfContents from "@/components/SectionTableOfContents.vue";
+    import SectionCheckers from "@/components/sections/SectionCheckers.vue";
+    import SectionComplianceLevels from "@/components/sections/SectionComplianceLevels.vue";
+    import SectionNavigation from "@/components/sections/SectionNavigation.vue";
+    import SectionScreenReaders from "@/components/sections/SectionScreenReaders.vue";
+    import SectionTableOfContents from "@/components/sections/SectionTableOfContents.vue";
 
     interface ISection {
         label: string,      // link's label
