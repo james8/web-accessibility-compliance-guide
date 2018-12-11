@@ -5,7 +5,7 @@
 
 <template>
     <div id="note" v-bind:class="`${ type }Note`">
-        <p class="noteTitle">{{ title }}:</p>
+        <p class="noteTitle">{{ (title !== undefined) ? `${ title }:` : '' }}</p>
         <slot></slot>
     </div>
 </template>
