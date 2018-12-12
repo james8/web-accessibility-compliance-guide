@@ -59,10 +59,9 @@
             <div :is="endSection.tag" :key="endSection.component"></div>
         </div>
 
-        <div class="section" style="text-align:center;">
-            © 2018
-        </div>
-
+        <footer>
+            <p>Last Modified: 12/2018</p>
+        </footer>
     </div>
 </template>
 
@@ -71,9 +70,13 @@
 
     import Note from "@/components/Note.vue";
     import Parallax from "@/components/Parallax.vue";
+    import SectionAltText from "@/components/sections/SectionAltText.vue";
     import SectionCheckers from "@/components/sections/SectionCheckers.vue";
     import SectionComplianceLevels from "@/components/sections/SectionComplianceLevels.vue";
+    import SectionDocuments from "@/components/sections/SectionDocuments.vue";
+    import SectionFormFields from "@/components/sections/SectionFormFields.vue";
     import SectionNavigation from "@/components/sections/SectionNavigation.vue";
+    import SectionResources from "@/components/sections/SectionResources.vue";
     import SectionScreenReaders from "@/components/sections/SectionScreenReaders.vue";
     import SectionTableOfContents from "@/components/sections/SectionTableOfContents.vue";
     import SectionFocusableElements from "@/components/sections/SectionFocusableElements.vue";
@@ -86,6 +89,7 @@
     import SectionMobileView from "@/components/sections/SectionMobileView.vue";
     import SectionHelpfulResources from "@/components/sections/SectionHelpfulResources.vue";
     import VueScrollClass from '@/../node_modules/vue-scroll-class';
+    import SectionVideos from "@/components/sections/SectionVideos.vue";
 
     interface ISection {
         label: string,      // link's label
@@ -98,11 +102,15 @@
         components: {
             Note,
             Parallax,
+            SectionAltText,
             SectionCheckers,
             SectionComplianceLevels,
+            SectionDocuments,
+            SectionFormFields,
             SectionNavigation,
-            SectionTableOfContents,
+            SectionResources,
             SectionScreenReaders,
+            SectionTableOfContents,
             SectionFocusableElements,
             SectionOffScreenContent,
             SectionColorContrast,
@@ -111,7 +119,8 @@
             SectionHeaderStructure,
             SectionFontStyles,
             SectionMobileView,
-            SectionHelpfulResources
+            SectionHelpfulResources,
+            SectionVideos
         },
         directives: {
             'scroll-class': VueScrollClass
@@ -131,7 +140,7 @@
             this.sections = [
                 {
                     label: 'Compliance Levels',
-                    level: 0,
+                    level: 1,
                     component: 'SectionComplianceLevels',
                     tag: 'section-compliance-levels'
                 },
@@ -161,6 +170,30 @@
                     level: 2,
                     component: 'SectionNavigation',
                     tag: 'section-navigation'
+                },
+                {
+                    label: '2. Image with Alternate Text',
+                    level: 2,
+                    component: 'SectionAltText',
+                    tag: 'section-alt-text'
+                },
+                {
+                    label: '3. Form Fields',
+                    level: 2,
+                    component: 'SectionFormFields',
+                    tag: 'section-form-fields'
+                },
+                {
+                    label: '4. Videos',
+                    level: 2,
+                    component: 'SectionVideos',
+                    tag: 'section-videos'
+                },
+                {
+                    label: '5. Documents',
+                    level: 2,
+                    component: 'SectionDocuments',
+                    tag: 'section-documents'
                 }
             ];
 
@@ -238,6 +271,35 @@
 </script>
 
 <style>
+    * {
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12pt;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1em 0px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin: 19.92px 0px;
+    }
+
+    h3 {
+        font-size: 1.17em;
+        font-weight: 700;
+        margin: 45px 0px 15px 0px;
+    }
+
+    h4 {
+        font-size: 1.33em;
+        font-weight: 700;
+        margin: 21.28px 0px;
+    }
+
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -268,6 +330,11 @@
 
     .section h2 {
         text-align: left;
+    }
+        
+    .section h3 {
+        padding-top: 20px;
+        text-decoration: underline;
     }
 
     .fancy {
@@ -332,5 +399,8 @@
         border-color:#ff9800;
     }
 
+    footer {
+        border-top: 4px double #bdbdbd;
+    }
 </style>
 
