@@ -6,6 +6,7 @@
     <div id="form-fields">
         <h3>Examples:</h3>
 
+        <p>Non-Compliant:</p>
         <div class="container">
             <input value="red" />
             <input value="blue" />
@@ -13,6 +14,7 @@
 
         <hr />
 
+        <p>Compliant:</p>
         <div class="container">
             <div class="wrapper">
                 <label for="input1">Favorite Color:</label>
@@ -49,6 +51,16 @@
 
     #form-fields label {
         padding: 10px 0px;
+    }
+
+    .container > input {
+        margin: 10px 0px;
+    }
+
+    @media (max-width: 550px) {
+        .container {
+            flex-direction: column;
+        }
     }
 </style>
 

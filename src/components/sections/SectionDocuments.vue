@@ -10,7 +10,7 @@
             Make sure that all <span class="fancy">document attachment(s)</span> are compliant for all users (this includes .pdf, .doc, .docx, etc.).  The requirements are similar to the requirements for web pages.  The main requirements are to make sure that text are not too small and has good color contrast, document has a good flow when read, and no ambiguous links (hyperlink text need to be meaningful), and images have an alternate text associated with them.
         </p>
         <p>
-            More information can be obtained by referring to the <a href="https://www.w3.org/TR/WCAG-TECHS/pdf.html">PDF Techniques for WCAG 2.0</a> article.
+            More information can be obtained by referring to the <a href="https://www.w3.org/TR/WCAG-TECHS/pdf.html" target="_blank">PDF Techniques for WCAG 2.0</a> article.
         </p>
 
         <note :type="'normal'">

@@ -165,6 +165,35 @@
 </script>
 
 <style>
+    * {
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12pt;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1em 0px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin: 19.92px 0px;
+    }
+
+    h3 {
+        font-size: 1.17em;
+        font-weight: 700;
+        margin: 45px 0px 15px 0px;
+    }
+
+    h4 {
+        font-size: 1.33em;
+        font-weight: 700;
+        margin: 21.28px 0px;
+    }
+
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
