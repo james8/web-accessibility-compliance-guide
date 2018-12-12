@@ -1,5 +1,11 @@
 <template>
     <div id="app">
+        <div class="skip-navigation" tabindex="0">SKIP TO MAIN CONTENT</div>
+
+        <div id="back-to-top"  v-scroll-class:visible=950>
+            <span>Back</span>
+            <span>to Top</span>
+        </div>
         <header>
             <h1>{{ title }}</h1>
             <p>
@@ -35,6 +41,28 @@
         <div v-for="ciSection in ciSections" :key="ciSection.id" class="section">
             <div :is="ciSection.tag" :key="ciSection.component"></div>
         </div>
+
+        
+
+        <div id="section-moderate-issues" class="section">
+            <h1>Moderate Issues (MIs)</h1>
+            <p>
+                Moderate issues do not need to, but <span class="fancy">SHOULD</span> be addressed to make viewing content on the page easy for everyone. These issues, if not addressed, could make it difficult for some users to view certain content but will still be able to access all content or information which another user would have no problem (unless the issue is so severe, like text color being the same color as the background which makes it impossible to see by everyone). 
+            </p>
+        </div>
+
+        <div v-for="miSection in miSections" :key="miSection.id" class="section">
+            <div :is="miSection.tag" :key="miSection.component"></div>
+        </div>
+
+        <div v-for="endSection in endSections" :key="endSection.id" class="section">
+            <div :is="endSection.tag" :key="endSection.component"></div>
+        </div>
+
+        <div class="section" style="text-align:center;">
+            © 2018
+        </div>
+
     </div>
 </template>
 
@@ -48,6 +76,16 @@
     import SectionNavigation from "@/components/sections/SectionNavigation.vue";
     import SectionScreenReaders from "@/components/sections/SectionScreenReaders.vue";
     import SectionTableOfContents from "@/components/sections/SectionTableOfContents.vue";
+    import SectionFocusableElements from "@/components/sections/SectionFocusableElements.vue";
+    import SectionOffScreenContent from "@/components/sections/SectionOffScreenContent.vue";
+    import SectionColorContrast from "@/components/sections/SectionColorContrast.vue";
+    import SectionSkipNavigation from "@/components/sections/SectionSkipNavigation.vue";
+    import SectionAmbiguousLinks from "@/components/sections/SectionAmbiguousLinks.vue";
+    import SectionHeaderStructure from "@/components/sections/SectionHeaderStructure.vue";
+    import SectionFontStyles from "@/components/sections/SectionFontStyles.vue";
+    import SectionMobileView from "@/components/sections/SectionMobileView.vue";
+    import SectionHelpfulResources from "@/components/sections/SectionHelpfulResources.vue";
+    import VueScrollClass from '@/../node_modules/vue-scroll-class';
 
     interface ISection {
         label: string,      // link's label
@@ -64,7 +102,19 @@
             SectionComplianceLevels,
             SectionNavigation,
             SectionTableOfContents,
-            SectionScreenReaders
+            SectionScreenReaders,
+            SectionFocusableElements,
+            SectionOffScreenContent,
+            SectionColorContrast,
+            SectionSkipNavigation,
+            SectionAmbiguousLinks,
+            SectionHeaderStructure,
+            SectionFontStyles,
+            SectionMobileView,
+            SectionHelpfulResources
+        },
+        directives: {
+            'scroll-class': VueScrollClass
         }
     })
     export default class App extends Vue {
@@ -72,6 +122,8 @@
         tocLinks: Array<ISection> = [];
         sections: Array<ISection> = [];
         ciSections: Array<ISection> = [];
+        miSections: Array<ISection> = [];
+        endSections: Array<ISection> = [];
 
         created(): void {
             this.title = "Web Accessibility Compliance Guide";
@@ -112,8 +164,74 @@
                 }
             ];
 
+            const mi: ISection = {
+                label: 'Moderate Issues',
+                level: 0,
+                component: '',
+                tag: 'section-moderate-issues'
+            };
+            this.miSections = [
+                {
+                    label: '1. Focusable Elements',
+                    level: 2,
+                    component: 'SectionFocusableElements',
+                    tag: 'section-focusable-elements'
+                },
+                {
+                    label: '2. Off-Screen Content',
+                    level: 2,
+                    component: 'SectionOffScreenContent',
+                    tag: 'section-off-screen-content'
+                },
+                {
+                    label: '3. Background/Text Color Contrast',
+                    level: 2,
+                    component: 'SectionColorContrast',
+                    tag: 'section-color-contrast'
+                },
+                {
+                    label: '4. Skip Navigation',
+                    level: 2,
+                    component: 'SectionSkipNavigation',
+                    tag: 'section-skip-navigation'
+                },
+                {
+                    label: '5. Ambiguous Links',
+                    level: 2,
+                    component: 'SectionAmbiguousLinks',
+                    tag: 'section-ambiguous-links'
+                },
+                {
+                    label: '6. Header Structure',
+                    level: 2,
+                    component: 'SectionHeaderStructure',
+                    tag: 'section-header-structure'
+                },
+                {
+                    label: '7. Font Styles',
+                    level: 2,
+                    component: 'SectionFontStyles',
+                    tag: 'section-font-styles'
+                },
+                {
+                    label: '8. Mobile View',
+                    level: 2,
+                    component: 'SectionMobileView',
+                    tag: 'section-mobile-view'
+                }                
+            ];
+            
+            this.endSections = [
+                {
+                    label: 'Helpful Resources',
+                    level: 0,
+                    component: 'SectionHelpfulResources',
+                    tag: 'section-helpful-resources'
+                }
+            ];
+
             this.tocLinks = this.sections;
-            this.tocLinks = [...this.tocLinks, ci, ...this.ciSections];
+            this.tocLinks = [...this.tocLinks, ci, ...this.ciSections, mi, ...this.miSections, ...this.endSections];
             // console.table(this.tocLinks);
         }
     }
@@ -156,4 +274,63 @@
         font-style: italic;
         font-weight: bold;
     }
+
+    h3{
+        text-decoration: underline;
+        margin-top:45px;
+    }
+
+    .skip-navigation {
+        color: blue;
+        cursor: pointer;
+        height: 1px;
+        overflow: hidden;
+        text-decoration: underline;
+        width: 1px;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    #back-to-top {
+        background: #c8e6c9;
+        border: 4px solid #4caf50;
+        box-sizing: initial;
+        border-radius: 5px;
+        color: #000!important;
+        cursor: pointer;
+        height: 37px;
+        opacity: 0;
+        padding: 5px;
+        text-decoration: none!important;
+        width: 65px;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        z-index: -10;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        transition: opacity .5s ease;
+    }
+
+    #back-to-top.visible {
+        opacity: 1;
+        z-index: 10;
+        transition: opacity .5s ease;
+    }
+
+    #back-to-top:hover {
+        background-color:#ffe0b2;
+        border-color:#ff9800;
+    }
+
 </style>
+
