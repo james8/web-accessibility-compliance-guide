@@ -4,13 +4,13 @@
 
 <template>
     <div id="navigation-nc">
-        <button type="button" id="focus-btn" @blur="FocusHere(0);" @focus="FocusHere(1);">{{ focusBtnText }}</button>
+        <button type="button" id="focus-btn" @blur="FocusHere($event);" @focus="FocusHere($event);">{{ focusBtnText }}</button>
 
         <nav>
             <ul class="mainMenu">
-                <li v-for="(menu, index) in menus" :key="menu.index" @mouseleave="ShowSubmenu(0, index);" @mouseenter="ShowSubmenu(1, index);" tabindex="0">
+                <li v-for="menu in menus" :key="menu.index" @mouseleave="ShowSubmenu($event, 0);" @mouseenter="ShowSubmenu($event, 1);" tabindex="0">
                     <span>{{ menu.name }}</span>
-                    <ul :id="`subMenu${ index }`" class="subMenu hidden">
+                    <ul class="subMenu hidden">
                         <li v-for="submenu in menu.submenus" :key="submenu.index">
                             <a :href="`#${ link }`">{{ submenu.name }}</a>
                         </li>
@@ -42,7 +42,9 @@
                 {
                     name: "Menu 1",
                     submenus: [
-                        { name: "Submenu 1-1" }
+                        { name: "Submenu 1-1" },
+                        { name: "Submenu 1-2" },
+                        { name: "Submenu 1-3" }
                     ]
                 },
                 {
@@ -51,28 +53,21 @@
                         { name: "Submenu 2-1" },
                         { name: "Submenu 2-2" }
                     ]
-                },
-                {
-                    name: "Menu 3",
-                    submenus: [
-                        { name: "Submenu 3-1" },
-                        { name: "Submenu 3-2" },
-                        { name: "Submenu 3-3" }
-                    ]
                 }
             ];
         }
 
-        FocusHere(type: boolean): void {
-            if (!type) this.focusBtnText = "Focus Here";
+        FocusHere(event: Event): void {
+            const elem: HTMLElement = event.target as HTMLElement;
+            if (elem.innerHTML === 'Focused') this.focusBtnText = "Focus Here";
             else {
                 this.focusBtnText = "Focused";
-                (document.querySelector('#navigation-nc #focus-btn') as HTMLElement).focus();
+                elem.focus();
             }
         }
 
-        ShowSubmenu(type: boolean, index: number): void {
-            const elem: Element = document.getElementById(`subMenu${ index }`) as HTMLElement;
+        ShowSubmenu(event: Event, type: boolean): void {
+            const elem: HTMLElement = (event.target as HTMLElement).querySelector('.subMenu') as HTMLElement;
             if (!type) elem.classList.add('hidden');
             else elem.classList.remove('hidden');
         }
@@ -123,7 +118,7 @@
         align-items: center;
     }
 
-    .mainMenu li:hover {
+    .mainMenu li:hover, .mainMenu li:focus {
         background-color: #1565c0;
     }
 
@@ -149,5 +144,24 @@
 
     .hidden {
         display: none;
+    }
+
+    @media (max-width: 750px) {
+        #navigation-nc {
+            flex-direction: column;
+        }
+
+         nav {
+            padding: 0px;
+            width: 300px;
+        }
+
+        ul {
+            margin: 10px 0px 0px 0px;
+        }
+
+        .subMenu {
+            top: 28px;
+        }
     }
 </style>

@@ -35,6 +35,12 @@
         <div v-for="ciSection in ciSections" :key="ciSection.id" class="section">
             <div :is="ciSection.tag" :key="ciSection.component"></div>
         </div>
+
+        <section-resources class="section"></section-resources>
+
+        <footer>
+            <p>Last Modified: 12/2018</p>
+        </footer>
     </div>
 </template>
 
@@ -43,11 +49,16 @@
 
     import Note from "@/components/Note.vue";
     import Parallax from "@/components/Parallax.vue";
+    import SectionAltText from "@/components/sections/SectionAltText.vue";
     import SectionCheckers from "@/components/sections/SectionCheckers.vue";
     import SectionComplianceLevels from "@/components/sections/SectionComplianceLevels.vue";
+    import SectionDocuments from "@/components/sections/SectionDocuments.vue";
+    import SectionFormFields from "@/components/sections/SectionFormFields.vue";
     import SectionNavigation from "@/components/sections/SectionNavigation.vue";
+    import SectionResources from "@/components/sections/SectionResources.vue";
     import SectionScreenReaders from "@/components/sections/SectionScreenReaders.vue";
     import SectionTableOfContents from "@/components/sections/SectionTableOfContents.vue";
+    import SectionVideos from "@/components/sections/SectionVideos.vue";
 
     interface ISection {
         label: string,      // link's label
@@ -60,11 +71,16 @@
         components: {
             Note,
             Parallax,
+            SectionAltText,
             SectionCheckers,
             SectionComplianceLevels,
+            SectionDocuments,
+            SectionFormFields,
             SectionNavigation,
+            SectionResources,
+            SectionScreenReaders,
             SectionTableOfContents,
-            SectionScreenReaders
+            SectionVideos
         }
     })
     export default class App extends Vue {
@@ -79,7 +95,7 @@
             this.sections = [
                 {
                     label: 'Compliance Levels',
-                    level: 0,
+                    level: 1,
                     component: 'SectionComplianceLevels',
                     tag: 'section-compliance-levels'
                 },
@@ -109,12 +125,41 @@
                     level: 2,
                     component: 'SectionNavigation',
                     tag: 'section-navigation'
+                },
+                {
+                    label: '2. Image with Alternate Text',
+                    level: 2,
+                    component: 'SectionAltText',
+                    tag: 'section-alt-text'
+                },
+                {
+                    label: '3. Form Fields',
+                    level: 2,
+                    component: 'SectionFormFields',
+                    tag: 'section-form-fields'
+                },
+                {
+                    label: '4. Videos',
+                    level: 2,
+                    component: 'SectionVideos',
+                    tag: 'section-videos'
+                },
+                {
+                    label: '5. Documents',
+                    level: 2,
+                    component: 'SectionDocuments',
+                    tag: 'section-documents'
                 }
             ];
 
-            this.tocLinks = this.sections;
-            this.tocLinks = [...this.tocLinks, ci, ...this.ciSections];
-            // console.table(this.tocLinks);
+            const r: ISection = {
+                label: 'Helpful Resources',
+                level: 0,
+                component: 'SectionResources',
+                tag: 'section-resources'
+            };
+
+            this.tocLinks = [...this.sections, ci, ...this.ciSections, r];
         }
     }
 </script>
@@ -151,9 +196,18 @@
     .section h2 {
         text-align: left;
     }
+        
+    .section h3 {
+        padding-top: 20px;
+        text-decoration: underline;
+    }
 
     .fancy {
         font-style: italic;
         font-weight: bold;
+    }
+
+    footer {
+        border-top: 4px double #bdbdbd;
     }
 </style>
