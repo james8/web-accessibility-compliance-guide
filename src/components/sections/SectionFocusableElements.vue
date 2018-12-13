@@ -31,7 +31,7 @@
         <button type="button" id="m1-focus-btn2a" class="focus-btn-distinguished" @blur="FocusHere(0,$event);" @focus="FocusHere(1,$event);">Focus Here</button>
         </p>        
 
-        <note :type="'note'">
+        <note :type="'normal'">
             <p>
                 Note that the button says <span class="fancy">'Focused'</span> when the button is focused, and <span class="fancy">'Focus Here'</span> when not. If it weren't for the button's title, we would not know what is being focused at the moment for the non-distinguised example. 
             </p>
@@ -42,6 +42,7 @@
 
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
+    
     import Note from "@/components/Note.vue";
 
     @Component({

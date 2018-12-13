@@ -1,11 +1,11 @@
 <template>
     <div id="app">
-        <div class="skip-navigation" tabindex="0">SKIP TO MAIN CONTENT</div>
-
-        <div id="back-to-top"  v-scroll-class:visible=950>
-            <span>Back</span>
-            <span>to Top</span>
+        <div id="skip-navigation">
+            <a href="#section-compliance-levels">
+                SKIP TO MAIN CONTENT
+            </a>
         </div>
+
         <header>
             <h1>{{ title }}</h1>
             <p>
@@ -62,11 +62,16 @@
         <footer>
             <p>Last Modified: 12/2018</p>
         </footer>
+        
+        <div id="back-to-top" v-scroll-class:visible=950>
+            <a href="#app">Back to Top</a>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator';
+    import VueScrollClass from '@/../node_modules/vue-scroll-class';
 
     import Note from "@/components/Note.vue";
     import Parallax from "@/components/Parallax.vue";
@@ -88,7 +93,6 @@
     import SectionFontStyles from "@/components/sections/SectionFontStyles.vue";
     import SectionMobileView from "@/components/sections/SectionMobileView.vue";
     import SectionHelpfulResources from "@/components/sections/SectionHelpfulResources.vue";
-    import VueScrollClass from '@/../node_modules/vue-scroll-class';
     import SectionVideos from "@/components/sections/SectionVideos.vue";
 
     interface ISection {
@@ -263,9 +267,7 @@
                 }
             ];
 
-            this.tocLinks = this.sections;
-            this.tocLinks = [...this.tocLinks, ci, ...this.ciSections, mi, ...this.miSections, ...this.endSections];
-            // console.table(this.tocLinks);
+            this.tocLinks = [...this.sections, ci, ...this.ciSections, mi, ...this.miSections, ...this.endSections];
         }
     }
 </script>
@@ -347,18 +349,6 @@
         margin-top:45px;
     }
 
-    .skip-navigation {
-        color: blue;
-        cursor: pointer;
-        height: 1px;
-        overflow: hidden;
-        text-decoration: underline;
-        width: 1px;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-
     #back-to-top {
         background: #c8e6c9;
         border: 4px solid #4caf50;
@@ -401,6 +391,31 @@
 
     footer {
         border-top: 4px double #bdbdbd;
+    }
+
+    #skip-navigation a {
+        color: blue;
+        cursor: pointer;
+        height: 1px;
+        overflow: hidden;
+        text-decoration: underline;
+        width: 1px;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    #skip-navigation a:focus {
+        background-color: #fff;
+        font-weight: bold;
+        height: auto;
+        padding: 0.5em;
+        width: auto;
+    }
+
+    #back-to-top a {
+        color: #000;
+        text-decoration: none;
     }
 </style>
 

@@ -42,7 +42,7 @@
 	        </p>
         </note>
 
-        <note :type="'note'">
+        <note :type="'normal'">
             <h3>EMs:</h3>
 
 	        <p>
@@ -82,7 +82,7 @@
             All text should have a basic or easily-readable typeface (e.g. fonts that make the characters upper-case I, lower-case L, and number 1 all look similar should be avoided).
         </p>
 
-        <note :type="'note'">
+        <note :type="'normal'">
 	        <p style="font-family: Times New Roman;">
                 Times New Roman: I, l, 1
 	        </p>

@@ -23,7 +23,7 @@
         <button type="button" id="m2-focus-btn2" class="focus-btn" @blur="FocusHere(0,$event);" @focus="FocusHere(1,$event);">Focus Here</button>
        
 
-        <note :type="'note'">
+        <note :type="'normal'">
             <p>
                 For the example above, if you start the focus at the 1st button and <span class="fancy">tab</span> to the next buttons, you would expect to tab to <span class="fancy">Toggle Menu</span> - 2nd <span class="fancy">Focus Here</span>. But the tab order is 1st <span class="fancy">Focus Here - Toggle Menu - -</span> 2nd <span class="fancy">Focus Here</span>. The focus seems to disappear, but is actually on the hidden menu's button.
             </p>
@@ -54,7 +54,7 @@
         <button type="button" id="m2-focus-btn2a" class="focus-btn" @blur="FocusHere(0,$event);" @focus="FocusHere(1,$event);">Focus Here</button>
        
 
-        <note :type="'note'">
+        <note :type="'normal'">
             <p>
                 For the example above, each button is focused correctly since the hidden menu's button is marked as <span class="fancy">non-focusable</span> with the <span class="fancy">tabindex</span> attribute.
             </p>
@@ -65,6 +65,7 @@
 
 <script lang="ts">
     import { Vue, Component } from "vue-property-decorator";
+
     import Note from "@/components/Note.vue";
 
     @Component({
@@ -83,11 +84,11 @@
 
         ToggleMenu(type: boolean, nf: string): void {
             if (!type) {
-                document.getElementById("m2-sidenav"+nf).className = "sidenav sidenav-hidden";
-                document.getElementById("m2-backdrop"+nf).className= "backdrop backdrop-hidden";
+                (document.getElementById(`m2-sidenav${ nf }`) as HTMLElement).className = "sidenav sidenav-hidden";
+                (document.getElementById(`m2-backdrop${ nf }`) as HTMLElement).className= "backdrop backdrop-hidden";
             } else {
-                document.getElementById("m2-sidenav"+nf).className = "sidenav";
-                document.getElementById("m2-backdrop"+nf).className= "backdrop";
+                (document.getElementById(`m2-sidenav${ nf }`) as HTMLElement).className = "sidenav";
+                (document.getElementById(`m2-backdrop${ nf }`) as HTMLElement).className= "backdrop";
             }
         }
         

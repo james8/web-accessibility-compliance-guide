@@ -13,7 +13,8 @@
     "gh-pages": "^2.0.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^7.0.0"
+    "vue-property-decorator": "^7.0.0",
+    "vue-scroll-class": "^1.2.3"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",

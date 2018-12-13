@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <note :type="'note'" >
+        <note :type="'normal'" >
             <p>
                 A Screen Reader will read each link as <span class="fancy">"learn more"</span>. A user using a Screen Reader may be trying to learn more about "cats", but mistakenly select the link for "dogs" since they are read identically.
             </p>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <note :type="'note'" >
+        <note :type="'normal'" >
             <p>
                 A user using a Screen Reader can easily distinguish which link will do what.
             </p>

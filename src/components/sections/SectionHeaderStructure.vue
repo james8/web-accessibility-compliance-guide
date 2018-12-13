@@ -31,7 +31,7 @@
             <h4>H4: Missing H3 tag</h4>
         </div>        
 
-        <note :type="'note'" >
+        <note :type="'normal'" >
             <p>
                 In the example above, there is no starting <span class="fancy">header 1</span> tag and there is no <span class="fancy">header 3</span> tag between the header 2 &amp; header 4 tags. This is not proper structuring for headers and may cause problems for Screen Readers.
             </p>
@@ -48,7 +48,7 @@
             <h4>H4: Lots of content</h4>
         </div>           
 
-        <note :type="'note'" >
+        <note :type="'normal'" >
             <p>
                 The example above has proper structuring for headers as each header has an appropriate parent header declared.
             </p>
