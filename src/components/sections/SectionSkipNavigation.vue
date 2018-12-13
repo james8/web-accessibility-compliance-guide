@@ -12,7 +12,7 @@
 
         <note :type="'normal'">
             <p>
-                To view the <span class="fancy">skip navigation link</span> for this page, go to the <a href="https://intranet.hawaiipublicschools.org/" target="_blank">root site</a> and tab once. The very first link will be focused and will take you to the main content of the site when pressed.
+                To view the <span class="fancy">skip navigation link</span> for this page, go to the <a href="" target="_blank">root site</a> and tab once. The very first link will be focused and will take you to the main content of the site when pressed.
             </p>
         </note>
     </div>
