@@ -65,68 +65,73 @@
 </script>
 
 <style scoped>
-table {
-    border-collapse: collapse;
-    margin-top: 30px;
-}
+    table {
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
 
-th.no-border {
-    background-color: transparent;
-    border: 0;
-}
+    th.no-border {
+        background-color: transparent;
+        border: 0;
+    }
 
-td:first-of-type, th {
-    background-color: #e8eaf6;
-}
+    td:first-of-type, th {
+        background-color: #e8eaf6;
+    }
 
-td.align-right {
-    text-align: right;
-}
+    td.align-right {
+        text-align: right;
+    }
 
-td.align-center, th.align-center {
-    text-align: center;
-}
+    td.align-center, th.align-center {
+        text-align: center;
+    }
 
-td, th {
-    border: 1px solid #000;
-    padding: 5px 10px;
-    width: 120px;
-}
+    td, th {
+        border: 1px solid #000;
+        padding: 5px 10px;
+        width: 120px;
+    }
 
-.color-contrast-ratios {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
+    .color-contrast-ratios {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
 
-.one-seven-ratio {
-    background-color: #3f51b5;
-    color: gray;
-}
+    .one-seven-ratio {
+        background-color: #3f51b5;
+        color: gray;
+    }
 
-.four-five-ratio {
-    background-color: #efefef;
-    color: green;
-}
+    .four-five-ratio {
+        background-color: #efefef;
+        color: green;
+    }
 
-.twentyone-ratio {
-    background-color: #000;
-    color: #fff;
-}
+    .twentyone-ratio {
+        background-color: #000;
+        color: #fff;
+    }
 
-.ratio-box {
-    margin: 10px 0;
-    padding: 20px 25px;
-    width: 200px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
+    .ratio-box {
+        margin: 10px 0;
+        padding: 20px 25px;
+        width: 215px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
 
+    @media (max-width: 800px) {
+        .color-contrast-ratios {
+            flex-direction: column;
+        }
+    }
 </style>
