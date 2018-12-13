@@ -2,7 +2,7 @@
     <div id="app">
         <div class="skip-navigation" tabindex="0">SKIP TO MAIN CONTENT</div>
 
-        <div id="back-to-top"  v-scroll-class:visible=950>
+        <div id="back-to-top"  v-scroll-class:visible=950 onclick="window.location='#app'">
             <span>Back</span>
             <span>to Top</span>
         </div>
