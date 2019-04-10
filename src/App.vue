@@ -298,7 +298,7 @@
     }
 
     h4 {
-        font-size: 1.33em;
+        font-size: 1em;
         font-weight: 700;
         margin: 21.28px 0px;
     }
